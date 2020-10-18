@@ -2,8 +2,8 @@
 
 Diseño y calidad de software
 
-## Modelo del dominio
+## Diseño de clases
 
-Este es el diagrama de clases del juego Mastermind
+Este es el diagrama de diseño de clases del juego Mastermind
 
 ![](diagrams/classDiagram.svg)
