@@ -2,8 +2,6 @@
 
 Diseño y calidad de software
 
-## Diseño de clases
+## Diseño modular
 
-Este es el diagrama de diseño de clases del juego Mastermind
-
-![](diagrams/classDiagram.svg)
+Diseño modular

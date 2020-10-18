@@ -1,32 +1,25 @@
 package calidad.mastermind;
 
+import calidad.mastermind.models.Game;
+import calidad.mastermind.views.View;
+
 public class Mastermind {
 
-    private Board board;
+	private Game game;
+	
+	private View view;
 
-    Mastermind() {
-        this.board = new Board();
-        this.play();
-    }
+	private Mastermind() {
+		this.game = new Game();
+		this.view = new View(this.game);
+	}
 
-    private void play() {
-        GuessPattern guess;
-        String message;
-        do {
-            guess = new GuessPattern();
-            guess.read();
-            this.board.add(guess);
-        } while (!this.board.isFull() || this.board.isWinner());
+	private void play() {
+		this.view.interact();
+	}
+	
+	public static void main(String[] args) {
+		new Mastermind().play();
+	}	
 
-        if (this.board.isWinner()) {
-            message = "You've won";
-        } else {
-            message = "You've lost";
-        }
-        System.out.println(message);
-    }
-
-    public static void main(String[] args) {
-        new Mastermind();
-    }
 }
