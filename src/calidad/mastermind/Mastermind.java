@@ -1,7 +1,7 @@
 package calidad.mastermind;
 
 import calidad.mastermind.models.Game;
-import calidad.mastermind.views.View;
+import calidad.mastermind.views.console.View;
 
 public class Mastermind {
 

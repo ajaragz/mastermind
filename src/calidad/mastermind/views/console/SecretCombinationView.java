@@ -1,4 +1,4 @@
-package calidad.mastermind.views;
+package calidad.mastermind.views.console;
 
 import calidad.mastermind.models.SecretCombination;
 import calidad.utils.WithConsoleView;
