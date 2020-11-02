@@ -1,71 +1,39 @@
 package usantatecla.mastermind.controllers;
 
-import java.util.List;
-
-import usantatecla.mastermind.models.Combination;
 import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
 
+import java.util.List;
+
 public class ProposalController extends Controller implements AcceptorController {
 
-	public ProposalController(Session session) {
+    private ActionController actionController;
+    // TODO: add undo/redo controllers here
+
+    public ProposalController(Session session) {
 		super(session);
+		this.actionController = new ActionController(session);
+        // TODO: add undo/redo controllers here
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
-		Error error = null;
-		if (colors.size() != Combination.getWidth()) {
-			error = Error.WRONG_LENGTH;
-		} else {
-			for (int i = 0; i < colors.size(); i++) {
-				if (colors.get(i) == null) {
-					error = Error.WRONG_CHARACTERS;
-				} else {
-					for (int j = i+1; j < colors.size(); j++) {
-						if (colors.get(i) == colors.get(j)) {
-							error = Error.DUPLICATED;
-						}
-					}
-				}				
-			}
-		}
-		if (error == null){
-			this.session.addProposedCombination(colors);
-			if (this.session.isWinner() || this.session.isLooser()) {
-				this.session.next();
-			}
-		}
-		return error;	
+    	return this.actionController.addProposedCombination(colors);
 	}
 
-	public boolean isWinner() {
-		return this.session.isWinner();
-	}
+	public boolean isWinner() {	return this.actionController.isWinner(); }
 
-	public boolean isLooser() {
-		return this.session.isLooser();
-	}
-	
-	public int getAttempts() {
-		return this.session.getAttempts();
-	}
+	public boolean isLooser() {	return this.actionController.isLooser(); }
 
-	public List<Color> getColors(int position) {
-		return this.session.getColors(position);
-	}
+	public int getAttempts() { return this.actionController.getAttempts(); }
 
-	public int getBlacks(int position) {
-		return this.session.getBlacks(position);
-	}
+	public List<Color> getColors(int position) { return this.actionController.getColors(position); }
 
-	public int getWhites(int position) {
-		return this.session.getWhites(position);
-	}
-	
+	public int getBlacks(int position) { return this.actionController.getBlacks(position); }
+
+	public int getWhites(int position) { return this.actionController.getWhites(position); }
+
 	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
-	}
+	public void accept(ControllersVisitor controllersVisitor) {	controllersVisitor.visit(this); }
 
 }
