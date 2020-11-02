@@ -2,7 +2,7 @@ package usantatecla.mastermind.controllers;
 
 import usantatecla.mastermind.models.Session;
 
-public abstract class Controller {
+public class Controller {
 
 	protected Session session;
 
@@ -13,7 +13,5 @@ public abstract class Controller {
 	public int getWidth() {
 		return this.session.getWidth();
 	}
-
-	public abstract void accept(ControllersVisitor controllersVisitor);
 
 }

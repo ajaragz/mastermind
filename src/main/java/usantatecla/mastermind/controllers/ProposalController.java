@@ -7,7 +7,7 @@ import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
 
-public class ProposalController extends Controller {
+public class ProposalController extends Controller implements AcceptorController {
 
 	public ProposalController(Session session) {
 		super(session);
