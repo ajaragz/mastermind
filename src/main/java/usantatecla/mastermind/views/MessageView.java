@@ -5,8 +5,10 @@ public enum MessageView {
 	SECRET("*"),
 	RESUME("Do you want to continue"),
 	RESULT(" --> #blacks blacks and #whites whites"),
+	PROPOSE_COMMAND("Propose Combination"),
 	PROPOSED_COMBINATION("Propose a combination: "),
 	TITLE("----- MASTERMIND -----"),
+	MENU_TITLE("----- Choose one option ----"),
 	WINNER("You've won!!! ;-)"),
 	LOOSER("You've lost!!! :-(");
 
