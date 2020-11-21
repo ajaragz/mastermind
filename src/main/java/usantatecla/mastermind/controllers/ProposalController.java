@@ -9,12 +9,14 @@ import java.util.List;
 public class ProposalController extends Controller implements AcceptorController {
 
     private ActionController actionController;
-    // TODO: add undo/redo controllers here
+    private UndoController undoController;
+    private RedoController redoController;
 
     public ProposalController(Session session) {
 		super(session);
 		this.actionController = new ActionController(session);
-        // TODO: add undo/redo controllers here
+		this.undoController = new UndoController(session);
+		this.redoController = new RedoController(session);
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -36,4 +38,19 @@ public class ProposalController extends Controller implements AcceptorController
 	@Override
 	public void accept(ControllersVisitor controllersVisitor) {	controllersVisitor.visit(this); }
 
+	public void undo() {
+    	this.undoController.undo();
+	}
+
+	public boolean isUndoable() {
+    	return this.undoController.isUndoable();
+	}
+
+	public void redo() {
+    	this.redoController.redo();
+	}
+
+	public boolean isRedoable() {
+    	return this.redoController.isRedoable();
+	}
 }

@@ -7,7 +7,8 @@ public class ProposalMenu extends Menu {
 
   ProposalMenu(ProposalController proposalController) {
     this.addCommand(new ProposalCommand(proposalController));
-    // TODO: add unro/redo commands here
+    this.addCommand(new UndoCommand(proposalController));
+    this.addCommand(new RedoCommand(proposalController));
   }
 
 }
