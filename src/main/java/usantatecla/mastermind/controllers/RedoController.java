@@ -9,13 +9,14 @@ public class RedoController extends Controller {
     }
 
     public void redo() {
-        // TODO: change this to this.session.redo()
-        this.session.isWinner();
+        this.session.redo();
+        if (this.session.isLooser()) {
+            this.session.next();
+        }
     }
 
     public boolean isRedoable(){
-        // TODO: return this.session.isRedoable();
-        return true;
+        return this.session.isRedoable();
     }
 
 }

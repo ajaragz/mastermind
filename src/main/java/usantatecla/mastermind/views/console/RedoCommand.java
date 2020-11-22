@@ -11,6 +11,7 @@ public class RedoCommand extends Command {
     @Override
     protected void execute() {
         this.proposalController.redo();
+        this.writeSummary();
     }
 
     @Override

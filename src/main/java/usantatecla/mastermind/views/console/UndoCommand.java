@@ -11,6 +11,7 @@ public class UndoCommand extends Command {
     @Override
     protected void execute() {
         this.proposalController.undo();
+        this.writeSummary();
     }
 
     @Override

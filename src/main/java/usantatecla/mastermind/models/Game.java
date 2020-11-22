@@ -63,4 +63,14 @@ public class Game {
 		return Combination.getWidth();
 	}
 
+	public BoardSetup getBoardSetup() {
+		return new BoardSetup(this.proposedCombinations, this.results, this.attempts);
+	}
+
+	public void setBoard(BoardSetup boardSetup) {
+		this.proposedCombinations = boardSetup.getProposedCombinations();
+		this.results = boardSetup.getResults();
+		this.attempts = boardSetup.getAttempts();
+	}
+
 }

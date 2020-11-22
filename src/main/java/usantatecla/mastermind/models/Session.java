@@ -8,10 +8,12 @@ public class Session {
 
     private Game game;
     private State state;
+    private GameLog gameLog;
 
     public Session() {
         this.game = new Game();
         this.state = new State();
+        this.gameLog = new GameLog(this.game);
     }
 
     public int getWidth() {
@@ -25,10 +27,12 @@ public class Session {
     public void reset() {
         this.game.clear();
         this.state.reset();
+        this.gameLog.reset();
     }
 
     public void addProposedCombination(List<Color> colors) {
         this.game.addProposedCombination(colors);
+        this.gameLog.log();
     }
 
     public boolean isWinner() {
@@ -57,5 +61,21 @@ public class Session {
 
     public StateValue getValueState() {
         return this.state.getValueState();
+    }
+
+    public void undo() {
+        this.gameLog.undo();
+    }
+
+    public boolean isUndoable() {
+        return this.gameLog.isUndoable();
+    }
+
+    public void redo() {
+        this.gameLog.redo();
+    }
+
+    public boolean isRedoable() {
+        return this.gameLog.isRedoable();
     }
 }

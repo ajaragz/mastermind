@@ -9,13 +9,11 @@ public class UndoController extends Controller{
 	}
 	
 	public void undo() {
-		// TODO: this.session.undo()
-		this.session.isWinner();
+		this.session.undo();
 	}
 
 	public boolean isUndoable(){
-		// TODO: return this.session.isUndoable();
-		return true;
+		return this.session.isUndoable();
 	}
 
 }

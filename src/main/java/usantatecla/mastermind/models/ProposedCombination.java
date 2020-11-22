@@ -23,4 +23,7 @@ class ProposedCombination extends Combination {
 		return false;
 	}
 
+	public List<Color> getColors() {
+		return this.colors;
+	}
 }
