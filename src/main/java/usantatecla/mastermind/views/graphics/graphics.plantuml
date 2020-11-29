@@ -1,0 +1,170 @@
+@startuml
+
+title __GRAPHICS's Class Diagram__\n
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.AttemptsView {
+            ~ AttemptsView()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.Constraints {
+            ~ Constraints()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.GameView {
+            {static} - GAME_OVER : String
+            ~ GameView()
+            ~ interact()
+            ~ interact()
+            - clear()
+            - drawGameOver()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.GraphicsView {
+            + GraphicsView()
+            + visit()
+            + visit()
+            + visit()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.ProposalCombinationView {
+            {static} - ACCEPT : String
+            - button : JButton
+            - characters : String
+            - label : JLabel
+            - textField : JTextField
+            + actionPerformed()
+            + keyPressed()
+            + keyReleased()
+            + keyTyped()
+            ~ ProposalCombinationView()
+            ~ getCharacters()
+            ~ resetCharacters()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.ProposedCombinationView {
+            {static} + ERROR_CODE : int
+            ~ ProposedCombinationView()
+            ~ ProposedCombinationView()
+            ~ read()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.ProposedCombinationsView {
+            ~ ProposedCombinationsView()
+            ~ add()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.ResultView {
+            ~ ResultView()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.ResumeDialog {
+            - newGame : boolean
+            ~ ResumeDialog()
+            ~ isNewGame()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace graphics {
+        class usantatecla.mastermind.views.graphics.SecretCombinationView {
+            {static} - TITLE : String
+            - secretCombination : JLabel
+            - title : JLabel
+            ~ SecretCombinationView()
+        }
+      }
+    }
+  }
+  
+
+  usantatecla.mastermind.views.graphics.AttemptsView -up-|> javax.swing.JLabel
+  usantatecla.mastermind.views.graphics.Constraints -up-|> java.awt.GridBagConstraints
+  usantatecla.mastermind.views.graphics.GameView -up-|> javax.swing.JFrame
+  usantatecla.mastermind.views.graphics.GameView o-- usantatecla.mastermind.views.graphics.ProposalCombinationView : proposalCombinationView
+  usantatecla.mastermind.views.graphics.GameView o-- usantatecla.mastermind.views.graphics.ProposedCombinationsView : proposedCombinationsView
+  usantatecla.mastermind.views.graphics.GameView o-- usantatecla.mastermind.views.graphics.SecretCombinationView : secretCombinationView
+  usantatecla.mastermind.views.graphics.GraphicsView -up-|> usantatecla.mastermind.views.View
+  usantatecla.mastermind.views.graphics.GraphicsView o-- usantatecla.mastermind.views.graphics.GameView : gameView
+  usantatecla.mastermind.views.graphics.ProposalCombinationView .up.|> java.awt.event.ActionListener
+  usantatecla.mastermind.views.graphics.ProposalCombinationView .up.|> java.awt.event.KeyListener
+  usantatecla.mastermind.views.graphics.ProposalCombinationView -up-|> javax.swing.JPanel
+  usantatecla.mastermind.views.graphics.ProposedCombinationView -up-|> javax.swing.JLabel
+  usantatecla.mastermind.views.graphics.ProposedCombinationView o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.graphics.ProposedCombinationsView -up-|> javax.swing.JPanel
+  usantatecla.mastermind.views.graphics.ResultView -up-|> javax.swing.JLabel
+  usantatecla.mastermind.views.graphics.ResultView o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.graphics.SecretCombinationView -up-|> javax.swing.JPanel
+  usantatecla.mastermind.views.graphics.SecretCombinationView o-- usantatecla.mastermind.controllers.StartController : startController
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

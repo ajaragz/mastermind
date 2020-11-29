@@ -1,0 +1,218 @@
+@startuml
+
+title __CONSOLE's Class Diagram__\n
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.AttemptsView {
+            ~ AttemptsView()
+            ~ writeln()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ColorView {
+            ~ ColorView()
+            ~ write()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        abstract class usantatecla.mastermind.views.console.Command {
+            # Command()
+            # writeSummary()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ConsoleView {
+            + ConsoleView()
+            + visit()
+            + visit()
+            + visit()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ErrorView {
+            ~ ErrorView()
+            ~ writeln()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ProposalCommand {
+            + ProposalCommand()
+            # execute()
+            # isActive()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ProposalMenu {
+            ~ ProposalMenu()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ProposalView {
+            ~ interact()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ProposedCombinationView {
+            ~ ProposedCombinationView()
+            ~ read()
+            ~ write()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.RedoCommand {
+            + RedoCommand()
+            # execute()
+            # isActive()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ResultView {
+            ~ ResultView()
+            ~ writeln()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.ResumeView {
+            ~ interact()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.SecretCombinationView {
+            ~ SecretCombinationView()
+            ~ writeln()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.StartView {
+            ~ interact()
+        }
+      }
+    }
+  }
+  
+
+  namespace usantatecla.mastermind {
+    namespace views {
+      namespace console {
+        class usantatecla.mastermind.views.console.UndoCommand {
+            + UndoCommand()
+            # execute()
+            # isActive()
+        }
+      }
+    }
+  }
+  
+
+  usantatecla.mastermind.views.console.AttemptsView -up-|> usantatecla.utils.WithConsoleView
+  usantatecla.mastermind.views.console.AttemptsView o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.console.ColorView -up-|> usantatecla.mastermind.views.ColorView
+  usantatecla.mastermind.views.console.Command -up-|> usantatecla.utils.Command
+  usantatecla.mastermind.views.console.Command o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.console.ConsoleView -up-|> usantatecla.mastermind.views.View
+  usantatecla.mastermind.views.console.ConsoleView o-- usantatecla.mastermind.views.console.ProposalView : proposalView
+  usantatecla.mastermind.views.console.ConsoleView o-- usantatecla.mastermind.views.console.ResumeView : resumeView
+  usantatecla.mastermind.views.console.ConsoleView o-- usantatecla.mastermind.views.console.StartView : startView
+  usantatecla.mastermind.views.console.ErrorView -up-|> usantatecla.mastermind.views.ErrorView
+  usantatecla.mastermind.views.console.ProposalCommand -up-|> usantatecla.mastermind.views.console.Command
+  usantatecla.mastermind.views.console.ProposalMenu -up-|> usantatecla.utils.Menu
+  usantatecla.mastermind.views.console.ProposedCombinationView -up-|> usantatecla.utils.WithConsoleView
+  usantatecla.mastermind.views.console.ProposedCombinationView o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.console.RedoCommand -up-|> usantatecla.mastermind.views.console.Command
+  usantatecla.mastermind.views.console.ResultView -up-|> usantatecla.utils.WithConsoleView
+  usantatecla.mastermind.views.console.ResultView o-- usantatecla.mastermind.controllers.ProposalController : proposalController
+  usantatecla.mastermind.views.console.SecretCombinationView -up-|> usantatecla.utils.WithConsoleView
+  usantatecla.mastermind.views.console.SecretCombinationView o-- usantatecla.mastermind.controllers.Controller : controller
+  usantatecla.mastermind.views.console.StartView -up-|> usantatecla.utils.WithConsoleView
+  usantatecla.mastermind.views.console.StartView o-- usantatecla.mastermind.views.console.SecretCombinationView : secretCombinationView
+  usantatecla.mastermind.views.console.UndoCommand -up-|> usantatecla.mastermind.views.console.Command
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
